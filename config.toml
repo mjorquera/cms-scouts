@@ -26,10 +26,10 @@ paginate        = 6
   orgDescription = "Here is a description placeholder for your org"
 
   author = "EM"
-  authorAvatar = "img/ghost-icon.png"
+  authorAvatar = "img/ggrey.jpeg"
   authorLocation = "Bandung, ID"
-  authorWebsite = "https://eueung.github.io"
-  authorDescription = "Describe yourself.."
+  authorWebsite = "https://mjorquera.github.io"
+  authorDescription = "El mejor Viejo Lobo"
 
   pageNotFoundTitle = "404 - Page not found"
 
