@@ -25,8 +25,8 @@ canonifyurls    = true
   mediumName = ""
 
   logo = "hugo-logo.png"
-  orgName = "EM"
-  orgWebsite = "https://www.telematika.org"
+  orgName = "Grupo Guía y Scout Hispano Americano"
+  orgWebsite = "http://www.scoutshispano.cl"
   orgDescription = "Here is a description placeholder for your org"
 
   showSupport = true
