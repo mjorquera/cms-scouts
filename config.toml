@@ -9,7 +9,7 @@ paginate        = 6
   title       = "Hugo Casper Two"
   subtitle    = "Port of Casper 2.x for Hugo"
 
-  cover       = "img/blog-cover.jpg"
+  cover       = "img/grupo1.jpg"
   description = "Here is a description of your site."
   metaDescription = ""
   googleAnalytics = ""
