@@ -639,7 +639,9 @@ body {
     -ms-flex-align: start;
     align-items: flex-start;
     height: 40px;
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    background-color: #000;
+    opacity: 0.8;
 }
 
 .site-nav,
@@ -658,7 +660,7 @@ body {
     padding-bottom: 80px;
     letter-spacing: .4px;
     white-space: nowrap;
-    -ms-overflow-scrolling: touch
+    -ms-overflow-scrolling: touch;
 }
 
 .site-nav-logo {
@@ -687,8 +689,8 @@ body {
 .nav {
     display: -ms-flexbox;
     display: flex;
-    margin: 0 0 0 -12px;
-    padding: 0;
+    margin: 0;
+    padding: 0 0 0 -12px;
     list-style: none
 }
 
@@ -706,7 +708,7 @@ body {
 .nav li a {
     padding: 10px 12px;
     color: #fff;
-    opacity: .8
+    opacity: .8;
 }
 
 .nav li a:hover {
