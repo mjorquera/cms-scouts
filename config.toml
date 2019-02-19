@@ -16,9 +16,9 @@ paginate        = 6
   customCSS = []
   RSSLink = ""
 
-  twitterName = "faketryghost"
-  fbName = "fakeghost"
-  githubName = "eueung"
+  twitterName = "GuiasyScoutsCha"
+  fbName = "scoutscha"
+  instagramName = "scouts_hispano"
 
   logo = "logo-grupo-gris.png"
   orgName = "EM"

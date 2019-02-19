@@ -691,7 +691,7 @@ body {
     display: flex;
     margin: 0;
     padding: 0 0 0 -12px;
-    list-style: none
+    list-style: none;
 }
 
 .nav li {
@@ -757,6 +757,10 @@ body {
 }
 
 .social-link-fb svg {
+    height: 1.5rem
+}
+
+.social-link-insta svg {
     height: 1.5rem
 }
 
