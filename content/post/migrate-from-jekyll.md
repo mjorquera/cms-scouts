@@ -8,6 +8,7 @@ prev: /tutorials/mathjax
 title: Migrate to Hugo from Jekyll
 noweight: 10
 image: img/team.jpg
+categories: [docs]
 ---
 
 ## Move static content to `static`

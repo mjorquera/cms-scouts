@@ -11,6 +11,7 @@ title: Navidad Scout!
 weight: 10
 image: img/navidad.jpg
 authorAvatar: grey.jpeg
+tags: ["manada","cia","tropa","ruta",]
 ---
 
 

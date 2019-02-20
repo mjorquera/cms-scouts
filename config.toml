@@ -21,13 +21,13 @@ paginate        = 6
   instagramName = "scouts_hispano"
 
   logo = "logo-grupo-gris.png"
-  orgName = "EM"
-  orgWebsite = "https://www.telematika.org"
-  orgDescription = "Here is a description placeholder for your org"
+  orgName = "Grupo Guía y Scout Hispano Americano"
+  orgWebsite = "https://www.scoutshispano.cl"
+  orgDescription = "El mejor grupo scout de Chile"
 
-  author = "EM"
+  author = "Grey Brother"
   authorAvatar = "img/ggrey.jpeg"
-  authorLocation = "Bandung, ID"
+  authorLocation = "Santiago, Chile"
   authorWebsite = "https://mjorquera.github.io"
   authorDescription = "El mejor Viejo Lobo"
 
@@ -45,16 +45,27 @@ paginate        = 6
   weight = 200
 
 [[menu.main]]
-  name = "Go"
-  url = "/tags/golang/"
+  name = "Docs"
+  url = "/categories/docs/"
+  weight = 190
+
+[[menu.main]]
+  name = "Manadas"
+  url = "/tags/manada/"
   weight = 100
 
 [[menu.main]]
-  name = "Food"
-  url = "/categories/food/"
+  name = "Compañía"
+  url = "/tags/cia/"
   weight = 99
 
 [[menu.main]]
-  name = "External"
-  url = "https://google.com/"
-  weight = 95
+  name = "Tropa"
+  url = "/tags/tropa/"
+  weight = 98
+
+[[menu.main]]
+  name = "Ruta"
+  url = "/tags/ruta/"
+  weight = 97
+
