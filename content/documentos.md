@@ -13,4 +13,9 @@ type= "page"
 +++
 
 ## Documentos
-Algunos documentos que son necesarios tenerlos presentes.
+
+Algunos documentos que son necesarios tenerlos presentes:
+
+* [Autorización para campamentos](../uploads/autorizacion_para_participar.doc)
+* [Ficha médica](../uploads/ficha_medica.doc)
+* [Estatutos del Grupo](../uploads/estatutos.pdf)
