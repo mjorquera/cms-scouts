@@ -45,11 +45,6 @@ paginate        = 6
   weight = 200
 
 [[menu.main]]
-  name = "Docs"
-  url = "/categories/docs/"
-  weight = 190
-
-[[menu.main]]
   name = "Manadas"
   url = "/tags/manada/"
   weight = 100
