@@ -64,3 +64,8 @@ paginate        = 6
   url = "/tags/ruta/"
   weight = 97
 
+  [[menu.main]]
+  name = "Inscríbete"
+  url = "https://goo.gl/forms/0NBCtTDmjrc84a0J3"
+  weight = 5
+
