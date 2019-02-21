@@ -26,7 +26,7 @@ paginate        = 6
   orgDescription = "El mejor grupo scout de Chile"
 
   author = "Grey Brother"
-  authorAvatar = "img/ggrey.jpeg"
+  authorAvatar = "img/grey.jpeg"
   authorLocation = "Santiago, Chile"
   authorWebsite = "https://mjorquera.github.io"
   authorDescription = "El mejor Viejo Lobo"

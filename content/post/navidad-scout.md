@@ -5,8 +5,6 @@ linktitle: Navidad Scout!
 nomenu:
   main:
     parent: tutorials
-next: /tutorials/github-pages-blog
-prev: /tutorials/automated-deployments
 title: Navidad Scout!
 weight: 10
 image: img/navidad.jpg
