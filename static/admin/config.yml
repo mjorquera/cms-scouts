@@ -28,13 +28,13 @@ collections:
         widget: "list"
       - label: "Tags"
         name: "tags"
-        required: false
-        widget: "list"
-      - label: "Keywords"
-        name: "keywords"
         required: true
         widget: "list"
         default: ["manada","cia","tropa","ruta"]
+      - label: "Keywords"
+        name: "keywords"
+        required: false
+        widget: "list"
       - label: "Cover Image"
         name: "image"
         required: false
