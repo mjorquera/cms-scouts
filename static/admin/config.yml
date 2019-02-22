@@ -17,11 +17,6 @@ collections:
         name: "date"
         required: false
         widget: "datetime"
-      - label: "Draft"
-        name: "draft"
-        required: false
-        widget: "boolean"
-        default: true
       - label: "Categories"
         name: "categories"
         required: false
