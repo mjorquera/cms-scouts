@@ -24,7 +24,15 @@ collections:
       - label: "Tags"
         name: "tags"
         required: true
+        widget: "select"
+        multiple: true
+        default: ["manada", "cia", "tropa","ruta"]
+        options: ["manada", "cia", "tropa","ruta"]
+      - label: "Tags2"
+        name: "tags2"
+        required: true
         widget: "list"
+        default: ["manada", "cia", "tropa","ruta"]
       - label: "Cover Image"
         name: "image"
         required: false
