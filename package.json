@@ -1,0 +1,24 @@
+{
+  "name": "cms-scouts",
+  "version": "1.0.0",
+  "description": "App for cms of scout group",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify-lambda build ./src/functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjorquera/cms-scouts.git"
+  },
+  "author": "mjorquera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjorquera/cms-scouts/issues"
+  },
+  "homepage": "https://github.com/mjorquera/cms-scouts#readme",
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "netlify-lambda": "^1.4.2"
+  }
+}

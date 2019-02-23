@@ -1,2 +1,5 @@
 [build.environment]
 HUGO_VERSION = "0.53"
+
+[build]
+functions = "./functions"
