@@ -31,6 +31,7 @@ exports.handler = function(event, context, callback) {
 
 
     function upload_image_blob(image, callback) {
+      console.log("1.1. create blob: " + image);
       github.gitdata.createBlob({
         owner: user,
         repo: repo,
@@ -50,6 +51,7 @@ exports.handler = function(event, context, callback) {
         repo: repo,
         ref: 'heads/master'
       }, function(err, data){
+        console.log("1.2. get_branch_reference: " + data);
         if (err) return new Error(err);
         
         callback(null, { image: image, commit: data.data.object.sha});
