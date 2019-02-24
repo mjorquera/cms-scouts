@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mjorquera/cms-scouts#readme",
   "dependencies": {
     "@octokit/rest": "^16.16.0",
+    "async": "^2.6.2",
     "gulp": "^4.0.0",
     "netlify-lambda": "^1.4.2"
   }
