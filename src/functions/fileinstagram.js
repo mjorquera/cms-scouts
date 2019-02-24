@@ -48,7 +48,8 @@ exports.handler = function(event, context, callback) {
         repo: repo,
         content: image,
         encoding: 'base64'
-      }).then(result => {callback(null, result.data.sha)}),
+      }).then(result => {callback(null, result.data.sha)})
+    },
 
     function get_branch_reference(image, callback){
       console.log("1.2.1. get_branch_reference image: " + image);
