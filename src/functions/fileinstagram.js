@@ -45,13 +45,14 @@ exports.handler = function(event, context, callback) {
 
 
     function get_branch_reference(image, callback){
+      console.log("1.2.1. get_branch_reference image: " + image);
       github.gitdata.getReference({
         owner: user,
         user: user,
         repo: repo,
         ref: 'heads/master'
       }, function(err, data){
-        console.log("1.2. get_branch_reference: " + data);
+        console.log("1.2.2 get_branch_reference: " + data + " error: " + err);
         if (err) return new Error(err);
         
         callback(null, { image: image, commit: data.data.object.sha});
