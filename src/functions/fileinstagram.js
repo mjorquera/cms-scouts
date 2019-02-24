@@ -26,7 +26,6 @@ exports.handler = function(event, context, callback) {
       console.log("0.0. start");
       console.log("0.0.1 image: " + image);
       https.get(image, (resp) => {
-        console.log("1.0. image resp: " + JSON.stringify(resp));
         resp.setEncoding('base64');
         resp.on('data', (data) => { imageData += data});
         resp.on('end', () => callback(null, imageData));
