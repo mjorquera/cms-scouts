@@ -12,7 +12,7 @@ exports.handler = function(event, context, callback) {
   const time = Date.now();
   const date = new Date();
   const github = new githubapi({ version: '3.0.0' });
-  github.authenticate({
+  github.auth({
     type: 'token',
     username: user,
     token
