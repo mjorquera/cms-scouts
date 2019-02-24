@@ -1,4 +1,4 @@
-const githubapi = require('github'),
+const githubapi = require("@octokit/rest"),
   async = require('async'),
   https = require('https');
 
