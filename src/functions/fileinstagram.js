@@ -64,19 +64,19 @@ exports.handler = function(event, context, callback) {
 title: Instagram - ${date.toString()}
 tags: ["manada","cia","tropa","ruta"]
 date: ${date.toISOString().slice(0,-14)}
-image: images/blog/${time}.jpg
+image: img/uploads/${time}.jpg
 originalURL: ${url}
 ---
 
 ${caption}`;
 
       const files = [{
-        path: `site/static/images/blog/${time}.jpg`,
+        path: `static/img/uploads/${time}.jpg`,
         mode: '100644',
         type: 'blob',
         sha: result.image
       }, {
-        path: `site/content/blog/${time}.md`,
+        path: `content/post/${time}.md`,
         mode: '100644',
         type: 'blob',
         content: content
