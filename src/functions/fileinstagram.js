@@ -71,7 +71,9 @@ image: img/uploads/${time}.jpg
 originalURL: ${url}
 ---
 
-${caption}`;
+${caption}
+
+![${caption.split(' ').slice(0,3).join(' ')}](/img/uploads/${time}.jpg)`;
 
       const files = [{
         path: `static/img/uploads/${time}.jpg`,
