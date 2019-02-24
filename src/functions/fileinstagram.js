@@ -24,9 +24,10 @@ exports.handler = function(event, context, callback) {
 
     function scrape_image_from_instagram(callback){
       console.log("0.0. start");
+      console.log("0.0.1 image: " + image);
       const imageSplit = image.split('/');
-      const imageURL = 'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s1080x1080/e15/' + imageSplit[imageSplit.length - 1];
-      let imageData = '';
+      const imageURL = "https://instagram.fscl10-1.fna.fbcdn.net/vp/c4f84e5c32f71bd2b5a3700174e5df1a/5CEA3BB4/t51.2885-15/e35/s1080x1080/" + imageSplit[imageSplit.length - 1] + "?_nc_ht=instagram.fscl10-1.fna.fbcdn.net";
+      let imageData = "";
       console.log("1. imageURL: " + imageURL);
       https.get(imageURL, (resp) => {
         resp.setEncoding('base64');
