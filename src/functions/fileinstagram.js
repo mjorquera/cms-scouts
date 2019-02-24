@@ -6,8 +6,15 @@ exports.handler = function(event, context, callback) {
   const { caption, url, image, key } = JSON.parse(event.body);
   const { IG_GIT_USER: user, IG_GIT_TOKEN: token, IG_GIT_REPO: repo, IG_SECRET_KEY } = process.env;  
 
-  if (key !== IG_SECRET_KEY) return callback(null, { statusCode: 401, body: 'Incorrect key supplied' });
-  if (!image || !caption || !url) return callback(null, { statusCode: 400, body: 'Params not supplied' });
+  if (key !== IG_SECRET_KEY) {
+    console.log("0.1: Incorrect key supplied");
+    return callback(null, { statusCode: 401, body: "Incorrect key supplied" });
+  };
+   
+  if (!image || !caption || !url) {
+    console.log("0.2: Params not supplied");
+    return callback(null, { statusCode: 400, body: "Params not supplied" });
+  };
   
   const time = Date.now();
   const date = new Date();
@@ -16,6 +23,7 @@ exports.handler = function(event, context, callback) {
   async.waterfall([
 
     function scrape_image_from_instagram(callback){
+      console.log("0.0. start");
       const imageSplit = image.split('/');
       const imageURL = 'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s1080x1080/e15/' + imageSplit[imageSplit.length - 1];
       let imageData = '';
