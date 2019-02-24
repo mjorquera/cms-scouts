@@ -11,7 +11,7 @@ exports.handler = function(event, context, callback) {
   
   const time = Date.now();
   const date = new Date();
-  const github = new Octokit({ access_token: token });
+  const github = new Octokit({ auth: 'token ' + token });
 
   async.waterfall([
 
