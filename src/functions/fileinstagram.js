@@ -38,6 +38,7 @@ exports.handler = function(event, context, callback) {
         content: image,
         encoding: 'base64'
       }, function(err, data) {
+        console.log("1.2.2 create blob: " + data + " error: " + err);
         if (err) return new Error(err);
         callback(null, data.data.sha);
       });
