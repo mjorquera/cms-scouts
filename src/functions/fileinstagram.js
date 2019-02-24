@@ -31,7 +31,7 @@ exports.handler = function(event, context, callback) {
 
 
     function upload_image_blob(image, callback) {
-      console.log("1.1. create blob: " + JSON.stringify(github.gitdata));
+      console.log("1.1. create blob: " + JSON.stringify(github));
       github.gitdata.createBlob({
         owner: user,
         repo: repo,
