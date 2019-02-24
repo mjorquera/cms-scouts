@@ -80,55 +80,59 @@ ${caption}`;
       }];
       console.log("2. Create Tree Files: " + files);
 
-      github.gitdata.createTree({
+      github.git.createTree({
         owner: user,
         user: user,
         repo: repo,
         tree: files,
         base_tree: result.commit
-      }, function(err, data){
-        if (err) return new Error(err);
-
-        result.tree = data.data.sha;
-        callback(null, result);
-      });
+      }).then(res => {
+          result.tree = res.data.sha;
+          callback(null, result);
+      }).catch(error => {
+        console.log("2. Create Tree error: " + JSON.stringify(error));
+        if (error) return new Error(error);
+      })
     },
 
 
     function commit_the_files(result, callback){
       console.log("3. commit: " + result);
-      github.gitdata.createCommit({
+      github.git.createCommit({
         owner: user,
         user: user,
         repo: repo,
         message: `New instagram image: ${date.toString()}`,
         tree: result.tree,
         parents: [result.commit]
-      }, function(err, data){
-        if (err) return new Error(err);
-
-        result.new = data.data.sha;
+      }).then(res => {
+        result.new = res.data.sha;
         callback(null, result);
-      });
+      }).catch(error => {
+        console.log("3. commit error: " + JSON.stringify(error));
+        if (error) return new Error(error);
+      })
     },
 
 
     function update_git_reference(result, callback){
-      github.gitdata.updateReference({
+      github.git.updateRef({
         owner: user,
         user: user,
         repo: repo,
         ref: 'heads/master',
         sha: result.new,
         force: true
-      }, function(err, data){
-        if (err) return new Error(err);
-        
+      }).then(res => { 
         callback(null);
-      });
+      }).catch(error => {
+        console.log("3. update error: " + JSON.stringify(error));
+        if (error) return new Error(error);
+      })
     }
 
   ], function (err, result) {
+    console.log("4. Funct Error: " + JSON.stringify(err));
     if (err) return callback(null, { statusCode: 400, body: err.message });
     else return callback(null, { statusCode: 200, body: 'Image imported' });
   });
