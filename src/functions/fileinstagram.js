@@ -25,11 +25,8 @@ exports.handler = function(event, context, callback) {
     function scrape_image_from_instagram(callback){
       console.log("0.0. start");
       console.log("0.0.1 image: " + image);
-      const imageSplit = image.split('/');
-      const imageURL = "https://instagram.fscl10-1.fna.fbcdn.net/vp/c4f84e5c32f71bd2b5a3700174e5df1a/5CEA3BB4/t51.2885-15/e35/s1080x1080/" + imageSplit[imageSplit.length - 1] + "?_nc_ht=instagram.fscl10-1.fna.fbcdn.net";
-      let imageData = "";
-      console.log("1. imageURL: " + imageURL);
-      https.get(imageURL, (resp) => {
+      https.get(image, (resp) => {
+        console.log("1.0. image resp: " + JSON.stringify(resp));
         resp.setEncoding('base64');
         resp.on('data', (data) => { imageData += data});
         resp.on('end', () => callback(null, imageData));
@@ -67,7 +64,7 @@ exports.handler = function(event, context, callback) {
     // Create a tree ready to commit
     function create_tree(result, callback){
       const content = `---
-title: ${caption.substring(25)}
+title: ${caption.substring(0,25)}
 tags: ["manada","cia","tropa","ruta"]
 date: ${date.toISOString().slice(0,-14)}
 image: img/uploads/${time}.jpg
