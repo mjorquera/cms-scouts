@@ -21,6 +21,7 @@ exports.handler = function(event, context, callback) {
       const imageSplit = image.split('/');
       const imageURL = 'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s1080x1080/e15/' + imageSplit[imageSplit.length - 1];
       let imageData = '';
+      console.log("1. imageURL: " + imageURL);
       https.get(imageURL, (resp) => {
         resp.setEncoding('base64');
         resp.on('data', (data) => { imageData += data});
@@ -58,12 +59,12 @@ exports.handler = function(event, context, callback) {
     // Create a tree ready to commit
     function create_tree(result, callback){
       const content = `---
-title: Instagram - ${date.toString()}
-tags: ["manada","cia","tropa","ruta"]
-date: ${date.toISOString().slice(0,-14)}
-image: img/uploads/${time}.jpg
-originalURL: ${url}
----
+                      title: Instagram - ${date.toString()}
+                      tags: ["manada","cia","tropa","ruta"]
+                      date: ${date.toISOString().slice(0,-14)}
+                      image: img/uploads/${time}.jpg
+                      originalURL: ${url}
+                      ---
 
 ${caption}`;
 
@@ -78,6 +79,7 @@ ${caption}`;
         type: 'blob',
         content: content
       }];
+      console.log("2. Create Tree Files: " + files);
 
       github.gitdata.createTree({
         owner: user,
@@ -95,6 +97,7 @@ ${caption}`;
 
 
     function commit_the_files(result, callback){
+      console.log("3. commit: " + result);
       github.gitdata.createCommit({
         owner: user,
         user: user,
