@@ -67,7 +67,7 @@ exports.handler = function(event, context, callback) {
     // Create a tree ready to commit
     function create_tree(result, callback){
       const content = `---
-title: Instagram - ${date.toString()}
+title: ${caption.substring(25)}
 tags: ["manada","cia","tropa","ruta"]
 date: ${date.toISOString().slice(0,-14)}
 image: img/uploads/${time}.jpg
