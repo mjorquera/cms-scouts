@@ -27,6 +27,19 @@ exports.handler = function(event, context, callback) {
       }).on('error', (e) => new Error(`Error scraping image: ${e.message}`));
     },
 
+    // function upload_image_blob(image, callback) {
+    //   console.log("1.1. create blob: " + JSON.stringify(github));
+    //   github.git.createBlob({
+    //     owner: user,
+    //     repo: repo,
+    //     content: image,
+    //     encoding: 'base64'
+    //   }, function(err, data) {
+    //     console.log("1.2.2 create blob: " + data + " error: " + err);
+    //     if (err) return new Error(err);
+    //     callback(null, data.data.sha);
+    //   });
+    // },
 
     function upload_image_blob(image, callback) {
       console.log("1.1. create blob: " + JSON.stringify(github));
@@ -35,13 +48,7 @@ exports.handler = function(event, context, callback) {
         repo: repo,
         content: image,
         encoding: 'base64'
-      }, function(err, data) {
-        console.log("1.2.2 create blob: " + data + " error: " + err);
-        if (err) return new Error(err);
-        callback(null, data.data.sha);
-      });
-    },
-
+      }).then(result => {callback(null, result.data.sha)}),
 
     function get_branch_reference(image, callback){
       console.log("1.2.1. get_branch_reference image: " + image);
