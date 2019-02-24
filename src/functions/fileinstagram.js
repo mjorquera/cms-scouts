@@ -27,20 +27,6 @@ exports.handler = function(event, context, callback) {
       }).on('error', (e) => new Error(`Error scraping image: ${e.message}`));
     },
 
-    // function upload_image_blob(image, callback) {
-    //   console.log("1.1. create blob: " + JSON.stringify(github));
-    //   github.git.createBlob({
-    //     owner: user,
-    //     repo: repo,
-    //     content: image,
-    //     encoding: 'base64'
-    //   }, function(err, data) {
-    //     console.log("1.2.2 create blob: " + data + " error: " + err);
-    //     if (err) return new Error(err);
-    //     callback(null, data.data.sha);
-    //   });
-    // },
-
     function upload_image_blob(image, callback) {
       console.log("1.1. create blob: " + JSON.stringify(github));
       github.git.createBlob({
@@ -51,22 +37,22 @@ exports.handler = function(event, context, callback) {
       }).then(result => {callback(null, result.data.sha)
       }).catch(error => {
         console.log("1.2. create blob error: " + JSON.stringify(error));
-        return new Error(error)})
+        return new Error(error)
+      })
     },
 
     function get_branch_reference(image, callback){
       console.log("1.2.1. get_branch_reference image: " + image);
-      github.gitdata.getReference({
+      github.git.getRef({
         owner: user,
         user: user,
         repo: repo,
         ref: 'heads/master'
-      }, function(err, data){
-        console.log("1.2.2 get_branch_reference: " + data + " error: " + err);
-        if (err) return new Error(err);
-        
-        callback(null, { image: image, commit: data.data.object.sha});
-      });
+      }).then(result => { callback(null, { image: image, commit: result.data.object.sha})
+      }).catch(error => {
+        console.log("1.2.2 get_branch_reference error: " + error);
+        return new Error(error);
+      })
     },
 
     // Create a tree ready to commit
