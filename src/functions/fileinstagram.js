@@ -25,6 +25,7 @@ exports.handler = function(event, context, callback) {
     function scrape_image_from_instagram(callback){
       console.log("0.0. start");
       console.log("0.0.1 image: " + image);
+      let imageData = "";
       https.get(image, (resp) => {
         resp.setEncoding('base64');
         resp.on('data', (data) => { imageData += data});
