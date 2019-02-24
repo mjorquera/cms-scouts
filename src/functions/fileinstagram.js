@@ -1,4 +1,4 @@
-const githubapi = require("@octokit/rest"),
+const Octokit = require("@octokit/rest"),
   async = require('async'),
   https = require('https');
 
@@ -11,12 +11,9 @@ exports.handler = function(event, context, callback) {
   
   const time = Date.now();
   const date = new Date();
-  const github = new githubapi({ version: '3.0.0' });
-  github.auth({
-    type: 'token',
-    username: user,
-    token
-  });
+  const github = new Octokit({
+    auth: "token " + token
+    });
 
   async.waterfall([
 
