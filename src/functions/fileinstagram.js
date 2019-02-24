@@ -48,7 +48,10 @@ exports.handler = function(event, context, callback) {
         repo: repo,
         content: image,
         encoding: 'base64'
-      }).then(result => {callback(null, result.data.sha)})
+      }).then(result => {callback(null, result.data.sha)
+      }).catch(error => {
+        console.log("1.2. create blob error: " + JSON.stringify(error));
+        return new Error(error)})
     },
 
     function get_branch_reference(image, callback){
