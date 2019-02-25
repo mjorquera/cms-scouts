@@ -1,0 +1,12 @@
+{
+    "name": "Grey Brother",
+    "bio": "El mejor Viejo Lobo",
+    "image": "/img/grey.jpeg",
+    "location": "Santiago, Chile",
+    "weight": 1,
+    "social": {
+        "twitter": "GuiasyScoutsCha",
+        "github": "https://www.github.com/mjorquera",
+        "website": "https://www.scoutshispano.cl"
+    }
+}

@@ -1,5 +1,5 @@
 ---
-author: "Grey Brother"
+author: "grey"
 date: 2014-09-28
 linktitle: Navidad Scout!
 nomenu:
@@ -8,7 +8,6 @@ nomenu:
 title: Navidad Scout!
 weight: 10
 image: img/navidad.jpg
-authorAvatar: grey.jpeg
 tags: ["manada","cia","tropa","ruta",]
 ---
 

@@ -20,10 +20,11 @@
 
     <footer class="post-full-footer">
       <section class="author-card">
-        <img class="author-profile-image" src="{{ (.Params.authorAvatar | default .Site.Params.authorAvatar) | absURL}}" alt="Author" />
+        {{ $author := index .Site.Data.authors (.Params.author | default "tha") }}
+        <img class="author-profile-image" src="{{ $author.image }}" alt="Author" />
         <section class="author-card-content">
-            <h4 class="author-card-name"><a href="{{"/" | absURL}}">{{.Params.author | default .Site.Params.author}}</a></h4>
-                <p>{{.Params.authorDescription | default .Site.Params.authorDescription}}</p>
+            <h4 class="author-card-name"><a href="{{"/" | absURL}}">{{ $author.name }}</a></h4>
+            <p>{{ $author.bio }}</p>
         </section>
       </section>
     </footer>

@@ -1,0 +1,11 @@
+{
+    "name": "Tha",
+    "bio": "El Elefante que creó todo",
+    "image": "/img/tha.jpg",
+    "location": "Santiago, Chile",
+    "weight": 1,
+    "social": {
+        "twitter": "GuiasyScoutsCha",
+        "website": "https://www.scoutshispano.cl"
+    }
+}

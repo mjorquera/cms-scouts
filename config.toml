@@ -24,13 +24,6 @@ paginate        = 6
   orgName = "Grupo Guía y Scout Hispano Americano"
   orgWebsite = "https://www.scoutshispano.cl"
   orgDescription = "El mejor grupo scout de Chile"
-
-  author = "Grey Brother"
-  authorAvatar = "img/grey.jpeg"
-  authorLocation = "Santiago, Chile"
-  authorWebsite = "https://mjorquera.github.io"
-  authorDescription = "El mejor Viejo Lobo"
-
   pageNotFoundTitle = "404 - Page not found"
 
   #casper or caspertwo
