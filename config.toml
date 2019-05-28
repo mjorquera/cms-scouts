@@ -20,9 +20,9 @@ paginate        = 6
   instagramName = "nomade_experience"
 
   logo = "logo-grupo-gris.png"
-  orgName = "Grupo Guía y Scout Hispano Americano"
-  orgWebsite = "https://www.scoutshispano.cl"
-  orgDescription = "El mejor grupo scout de Chile"
+  orgName = "Nomade Experience"
+  orgWebsite = "https://www.nomadeexperience.com"
+  orgDescription = ""
   pageNotFoundTitle = "404 - Page not found"
 
   #casper or caspertwo
