@@ -13,6 +13,7 @@ collections:
       - label: "Author"
         name: "author"
         widget: "select"
+        default: ["tha"]
         options: ["tha", "grey"]
       - label: "Title"
         name: "title"
