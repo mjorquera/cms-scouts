@@ -16,12 +16,12 @@ paginate        = 6
   customCSS = []
   RSSLink = ""
 
-  fbName = "Nomade.Patagonia"
-  instagramName = "nomade_experience"
+  fbName = "scoutscha"
+  instagramName = "scouts_hispano"
 
   logo = "logo-grupo-gris.png"
-  orgName = "Nomade Experience"
-  orgWebsite = "https://www.nomadeexperience.com"
+  orgName = "Grupo Guía y Scout Hispano Americano"
+  orgWebsite = "https://www.scoutshispano.cl"
   orgDescription = ""
   pageNotFoundTitle = "404 - Page not found"
 
