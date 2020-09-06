@@ -1,4 +1,4 @@
-const Octokit = require("@octokit/rest"),
+const githubapi = require('github'),
   async = require('async'),
   https = require('https');
 
@@ -18,15 +18,24 @@ exports.handler = function (event, context, callback) {
 
   const time = Date.now();
   const date = new Date();
-  const github = new Octokit({ auth: 'token ' + token });
+  const github = new githubapi({ version: '3.0.0' });
+  github.authenticate({
+    type: 'token',
+    username: user,
+    token
+  });
 
   async.waterfall([
 
     function scrape_image_from_instagram(callback) {
       console.log("0.0. start");
       console.log("0.0.1 image: " + image);
+
+      const imageSplit = image.split('/');
+      const imageURL = 'https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s1080x1080/e15/' + imageSplit[imageSplit.length - 1];
+      
       let imageData = "";
-      https.get(image, (resp) => {
+      https.get(imageURL, (resp) => {
         resp.setEncoding('base64');
         resp.on('data', (data) => { imageData += data });
         resp.on('end', () => callback(null, imageData));
@@ -35,7 +44,7 @@ exports.handler = function (event, context, callback) {
 
     function upload_image_blob(image, callback) {
       console.log("1.1. create blob: " + JSON.stringify(github));
-      github.git.createBlob({
+      github.gitdata.createBlob({
         owner: user,
         repo: repo,
         content: image,
@@ -50,7 +59,7 @@ exports.handler = function (event, context, callback) {
 
     function get_branch_reference(image, callback) {
       console.log("1.2.1. get_branch_reference image: " + image);
-      github.git.getRef({
+      github.gitdata.getReference({
         owner: user,
         user: user,
         repo: repo,
@@ -90,7 +99,7 @@ ${caption}
       }];
       console.log("2. Create Tree Files: " + files);
 
-      github.git.createTree({
+      github.gitdata.createTree({
         owner: user,
         user: user,
         repo: repo,
@@ -108,7 +117,7 @@ ${caption}
 
     function commit_the_files(result, callback) {
       console.log("3. commit: " + result);
-      github.git.createCommit({
+      github.gitdata.createCommit({
         owner: user,
         user: user,
         repo: repo,
@@ -126,7 +135,7 @@ ${caption}
 
 
     function update_git_reference(result, callback) {
-      github.git.updateRef({
+      github.gitdata.updateReference({
         owner: user,
         user: user,
         repo: repo,
