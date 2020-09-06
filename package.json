@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "App for cms of scout group",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install & hugo && netlify-lambda build ./src/functions"
@@ -12,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/mjorquera/cms-scouts.git"
   },
-  "author": "mjorquera",
+  "author": "mjorquer",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mjorquera/cms-scouts/issues"
@@ -23,6 +22,7 @@
     "async": "^2.6.3",
     "encoding": "^0.1.12",
     "gulp": "^4.0.2",
-    "netlify-lambda": "^1.6.3"
+    "netlify-lambda": "^1.6.3",
+    "web-midi-api": "^2.0.8"
   }
 }

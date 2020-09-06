@@ -1,3 +1,4 @@
+var navigator = require('web-midi-api');
 const Octokit = require("@octokit/rest"),
   async = require('async'),
   https = require('https');
