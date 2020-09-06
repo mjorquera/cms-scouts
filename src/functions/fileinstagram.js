@@ -1,8 +1,8 @@
-import Octokit from "@octokit/rest";
-import { waterfall } from 'async';
-import { get } from 'https';
+const Octokit = require("@octokit/rest"),
+  async = require('async'),
+  https = require('https');
 
-export function handler (event, context, callback) {
+exports.handler = function (event, context, callback) {
   const { caption, url, image, key } = JSON.parse(event.body);
   const { IG_GIT_USER: user, IG_GIT_TOKEN: token, IG_GIT_REPO: repo, IG_SECRET_KEY } = process.env;
 
@@ -20,13 +20,13 @@ export function handler (event, context, callback) {
   const date = new Date();
   const github = new Octokit({ auth: 'token ' + token });
 
-  waterfall([
+  async.waterfall([
 
     function scrape_image_from_instagram(callback) {
       console.log("0.0. start");
       console.log("0.0.1 image: " + image);
       let imageData = "";
-      get(image, (resp) => {
+      https.get(image, (resp) => {
         resp.setEncoding('base64');
         resp.on('data', (data) => { imageData += data });
         resp.on('end', () => callback(null, imageData));
@@ -147,4 +147,4 @@ ${caption}
     else return callback(null, { statusCode: 200, body: 'Image imported' });
   });
 
-}
+};
