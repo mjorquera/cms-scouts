@@ -21,8 +21,6 @@
     "@octokit/rest": "^16.35.0",
     "async": "^2.6.3",
     "encoding": "^0.1.12",
-    "gulp": "^4.0.2",
-    "netlify-lambda": "^1.6.3",
-    "web-midi-api": "^2.0.8"
+    "netlify-lambda": "^1.6.3"
   }
 }
