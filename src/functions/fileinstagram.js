@@ -1,9 +1,9 @@
-var navigator = require('web-midi-api');
 const Octokit = require("@octokit/rest"),
   async = require('async'),
   https = require('https');
 
 exports.handler = function (event, context, callback) {
+  console.log("0.0: Evvent:" + event);
   const { caption, url, image, key } = JSON.parse(event.body);
   const { IG_GIT_USER: user, IG_GIT_TOKEN: token, IG_GIT_REPO: repo, IG_SECRET_KEY } = process.env;
 
