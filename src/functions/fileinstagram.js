@@ -1,6 +1,7 @@
 const Octokit = require("@octokit/rest"),
   async = require('async'),
-  https = require('https');
+  https = require('https'),
+  getUserAgent = require('universal-user-agent');
 
 exports.handler = function (event, context, callback) {
   console.log("0.0: Event:" + JSON.stringify(event));
