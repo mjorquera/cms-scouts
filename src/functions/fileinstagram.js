@@ -2,33 +2,33 @@ const Octokit = require("@octokit/rest"),
   async = require('async'),
   https = require('https');
 
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
   const { caption, url, image, key } = JSON.parse(event.body);
-  const { IG_GIT_USER: user, IG_GIT_TOKEN: token, IG_GIT_REPO: repo, IG_SECRET_KEY } = process.env;  
+  const { IG_GIT_USER: user, IG_GIT_TOKEN: token, IG_GIT_REPO: repo, IG_SECRET_KEY } = process.env;
 
   if (key !== IG_SECRET_KEY) {
     console.log("0.1: Incorrect key supplied");
     return callback(null, { statusCode: 401, body: "Incorrect key supplied" });
   };
-   
+
   if (!image || !caption || !url) {
     console.log("0.2: Params not supplied");
     return callback(null, { statusCode: 400, body: "Params not supplied" });
   };
-  
+
   const time = Date.now();
   const date = new Date();
   const github = new Octokit({ auth: 'token ' + token });
 
   async.waterfall([
 
-    function scrape_image_from_instagram(callback){
+    function scrape_image_from_instagram(callback) {
       console.log("0.0. start");
       console.log("0.0.1 image: " + image);
       let imageData = "";
       https.get(image, (resp) => {
         resp.setEncoding('base64');
-        resp.on('data', (data) => { imageData += data});
+        resp.on('data', (data) => { imageData += data });
         resp.on('end', () => callback(null, imageData));
       }).on('error', (e) => new Error(`Error scraping image: ${e.message}`));
     },
@@ -40,21 +40,23 @@ exports.handler = function(event, context, callback) {
         repo: repo,
         content: image,
         encoding: 'base64'
-      }).then(result => {callback(null, result.data.sha)
+      }).then(result => {
+        callback(null, result.data.sha)
       }).catch(error => {
         console.log("1.2. create blob error: " + JSON.stringify(error));
         return new Error(error)
       })
     },
 
-    function get_branch_reference(image, callback){
+    function get_branch_reference(image, callback) {
       console.log("1.2.1. get_branch_reference image: " + image);
       github.git.getRef({
         owner: user,
         user: user,
         repo: repo,
         ref: 'heads/master'
-      }).then(result => { callback(null, { image: image, commit: result.data.object.sha})
+      }).then(result => {
+        callback(null, { image: image, commit: result.data.object.sha })
       }).catch(error => {
         console.log("1.2.2 get_branch_reference error: " + error);
         return new Error(error);
@@ -62,18 +64,18 @@ exports.handler = function(event, context, callback) {
     },
 
     // Create a tree ready to commit
-    function create_tree(result, callback){
+    function create_tree(result, callback) {
       const content = `---
-title: ${caption.split(' ').slice(0,3).join(' ')}
+title: ${caption.split(' ').slice(0, 3).join(' ')}
 tags: ["manada","cia","tropa","ruta"]
-date: ${date.toISOString().slice(0,-14)}
+date: ${date.toISOString().slice(0, -14)}
 image: img/uploads/${time}.jpg
 originalURL: ${url}
 ---
 
 ${caption}
 
-![${caption.split(' ').slice(0,3).join(' ')}](/img/uploads/${time}.jpg)`;
+![${caption.split(' ').slice(0, 3).join(' ')}](/img/uploads/${time}.jpg)`;
 
       const files = [{
         path: `static/img/uploads/${time}.jpg`,
@@ -95,8 +97,8 @@ ${caption}
         tree: files,
         base_tree: result.commit
       }).then(res => {
-          result.tree = res.data.sha;
-          callback(null, result);
+        result.tree = res.data.sha;
+        callback(null, result);
       }).catch(error => {
         console.log("2. Create Tree error: " + JSON.stringify(error));
         if (error) return new Error(error);
@@ -104,7 +106,7 @@ ${caption}
     },
 
 
-    function commit_the_files(result, callback){
+    function commit_the_files(result, callback) {
       console.log("3. commit: " + result);
       github.git.createCommit({
         owner: user,
@@ -123,7 +125,7 @@ ${caption}
     },
 
 
-    function update_git_reference(result, callback){
+    function update_git_reference(result, callback) {
       github.git.updateRef({
         owner: user,
         user: user,
@@ -131,7 +133,7 @@ ${caption}
         ref: 'heads/master',
         sha: result.new,
         force: true
-      }).then(res => { 
+      }).then(res => {
         callback(null);
       }).catch(error => {
         console.log("3. update error: " + JSON.stringify(error));
