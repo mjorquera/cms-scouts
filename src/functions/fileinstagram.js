@@ -3,8 +3,8 @@ const Octokit = require("@octokit/rest"),
   https = require('https');
 
 exports.handler = function (event, context, callback) {
-  console.log("0.0: Evvent:" + JSON.stringify(event));
-  const { caption, url, image, key } = JSON.parse(event.body);
+  console.log("0.0: Event:" + JSON.stringify(event));
+  const { caption, url, image, key } = JSON.parse(JSON.stringify(event.body));
   const { IG_GIT_USER: user, IG_GIT_TOKEN: token, IG_GIT_REPO: repo, IG_SECRET_KEY } = process.env;
 
   if (key !== IG_SECRET_KEY) {
