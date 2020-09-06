@@ -17,12 +17,14 @@
                 "-h",
                 "handler",
                 "-e",
-                "${workspaceFolder}/src/functions/event.json",
-                "IG_GIT_USER='scouts_hispano'",
-                "IG_GIT_TOKEN='mytoken'",
-                "IG_GIT_REPO='myrepo'",
-                "IG_SECRET_KEY='mykey'"
-             ]
+                "${workspaceFolder}/src/functions/event.json"
+             ],
+             "env": {
+                "IG_GIT_USER": "scouts_hispano",
+                "IG_GIT_TOKEN": "mytoken",
+                "IG_GIT_REPO": "myrepo",
+                "IG_SECRET_KEY": "mykey"
+             }
         }
     ]
 }
