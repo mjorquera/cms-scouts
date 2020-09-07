@@ -90,7 +90,7 @@ ${caption}
         type: 'blob',
         content: content
       }];
-      console.log("2. Create Tree Files: " + files);
+      console.log("2. Create Tree Files: " + JSON.stringify(files));
 
       github.git.createTree({
         owner: user,
@@ -109,7 +109,7 @@ ${caption}
 
 
     function commit_the_files(result, callback) {
-      console.log("3. commit: " + result);
+      console.log("3. commit: " + JSON.stringify(result));
       github.git.createCommit({
         owner: user,
         user: user,
