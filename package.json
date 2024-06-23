@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/mjorquera/cms-scouts#readme",
   "dependencies": {
-    "@octokit/rest": "^16.35.0",
+    "@octokit/rest": "^21.0.0",
     "async": "^2.6.3",
     "encoding": "^0.1.12",
     "universal-user-agent": "^6.0.0"
