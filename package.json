@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install & hugo && netlify-lambda build ./src/functions"
+    "build": "npm install & hugo"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
     "@octokit/rest": "^16.35.0",
     "async": "^2.6.3",
     "encoding": "^0.1.12",
-    "netlify-lambda": "^1.6.3",
     "universal-user-agent": "^6.0.0"
   }
 }
